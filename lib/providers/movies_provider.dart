@@ -32,7 +32,7 @@ class MoviesProvider extends ChangeNotifier {
     final jsonData = await _getJsonData('3/movie/now_playing');
 
     final nowPlayingResponse = NowPlayingResponse.fromJson(jsonData);
-    onDisplayMovies = nowPlayingResponse.results;
+    onDisplayMovies = [...onDisplayMovies, ...nowPlayingResponse.results];
     //if change data re-render new data in widgets
     notifyListeners();
   }
