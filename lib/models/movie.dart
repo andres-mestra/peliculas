@@ -32,12 +32,15 @@ class Movie {
   bool video;
   double voteAverage;
   int voteCount;
+  static String baseUrlImg = 'https://image.tmdb.org/t/p/w500';
+  static String defaultImg = 'https://i.stack.imgur.com/GNhxO.png';
 
   get fullPosterImg {
-    if (posterPath != null) {
-      return 'https://image.tmdb.org/t/p/w500${posterPath}';
-    }
-    return 'https://i.stack.imgur.com/GNhxO.png';
+    return posterPath != null ? '$baseUrlImg$posterPath' : defaultImg;
+  }
+
+  get fullBackdropPath {
+    return backdropPath != null ? '$baseUrlImg$backdropPath' : defaultImg;
   }
 
   factory Movie.fromJson(String str) => Movie.fromMap(json.decode(str));
