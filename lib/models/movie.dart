@@ -34,6 +34,7 @@ class Movie {
   int voteCount;
   static String baseUrlImg = 'https://image.tmdb.org/t/p/w500';
   static String defaultImg = 'https://i.stack.imgur.com/GNhxO.png';
+  String? heroId;
 
   get fullPosterImg {
     return posterPath != null ? '$baseUrlImg$posterPath' : defaultImg;
